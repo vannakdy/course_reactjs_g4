@@ -1,3 +1,9 @@
+- run project from git
+    1. clone
+    2. goto root 
+        > npm install
+        > npm start
+
 - install node and npm 
     > node -v => node >= 14.0.0
     > npm -v => npm >= 6.0.0
@@ -8,6 +14,8 @@
     > npm start
     http://localhost:3000
 - Modify App.js
+
+
 
 
 
