@@ -1,0 +1,44 @@
+table , th , td {
+    border: 1px solid rgb(239, 235, 235);
+}
+th,td{
+    text-align: left;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width:  100%;
+}
+
+.container{
+    padding: 20px;
+}
+
+.header_container{
+    background-color: #e2e2e2;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.txt_header{
+    color: black;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.btn_edit{
+    background-color: rgb(14, 116, 179);
+    color: white;
+    border: none;
+    margin: 0 5px;
+    width:60px;
+}
+.btn_delete{
+    background-color: brown;
+    color: white;
+    border: none;
+    margin: 0 5px;
+    width:60px;
+}
