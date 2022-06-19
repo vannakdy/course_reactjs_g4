@@ -1,82 +1,34 @@
 import React from "react";
 import "./App.css"
-function App(){
-  // render data 
-  const arr_student = [
-    {
-      id : 101,
-      name : "Sok",
-      gender : "Male",
-      grade : "A"
-    },
-    {
-      id : 102,
-      name : "Dara",
-      gender : "Male",
-      grade : "A"
-    },
-    {
-      id : 103,
-      name : "Som",
-      gender : "Male",
-      grade : "B"
-    },
-    {
-      id : 104,
-      name : "Jon",
-      gender : "Male",
-      grade : "B"
-    },
-  ];
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom"
+import HomeScreen from "./screen/home/HomeScreen";
+import StudentScreen from "./screen/student/StudentScreen";
+import AboutScreen from "./screen/about/AboutScreen";
+import RoutNotFoundScreen from "./screen/404/404";
 
-  const handleEdit = (data) => {
-    console.log(data)
-    alert(data.id)
-  }
 
-  const handleDelete = (data) => {
-    console.log(data)
-    alert(data.id)
-  }
+const App = () => {
+  return(
+    <div>
+      {/* reginset route */}
+      
+      <BrowserRouter>
 
-  const handleClickTitle = () =>{
-    alert("Click title")
-  }
-
-  return (
-    <div className="container">
-      <div className="header_container">
-        <div >
-          <span onClick={handleClickTitle} className="txt_header">Render Data In Table </span>
-          <input />
+        <div className="contain_menu">
+          <Link className="menu_item" to="/">Home</Link>
+          <Link className="menu_item" to="/student">Student</Link>
+          <Link className="menu_item" to="/about">About</Link>
+          <Link className="menu_item" to="/login">Login</Link>
         </div>
-        <button className="btn_addnew">Add New</button>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Grade</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody >
-          {arr_student.map((data,i)=>(
-              <tr key={i}>
-                <td>{data.id}</td>
-                <td>{data.name}</td>
-                <td>{data.gender}</td>
-                <td>{data.grade}</td>
-                <td style={{width:'20%'}}>
-                  <button onClick={()=>handleEdit(data)} className="btn_edit">Edit</button>
-                  <button onClick={()=>handleDelete(data)} className="btn_delete">Delete</button>
-                </td>
-              </tr>
-          ))}
-        </tbody>
-      </table>
+        <div style={{padding:20}}>
+          <Routes>
+            <Route path="/" element={<HomeScreen/>} />
+            <Route path="/student" element={<StudentScreen/>} />
+            <Route path="/about" element = {<AboutScreen/>} />
+            <Route path="*" element={<RoutNotFoundScreen/>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   )
 }
