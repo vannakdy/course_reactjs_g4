@@ -1,0 +1,14 @@
+
+.image{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    background-color: #ca2424;
+
+}
+.item_person{
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+    border-bottom: 1px solid gray;
+}

@@ -1,14 +1,66 @@
 import {Link} from "react-router-dom"
-const StudentScreen = () =>{
-    return (
+import ListPerson from "../../components/list/ListPerson"
 
-      <div>
-       
-        <h1>StudentScreen</h1>
-        <h1>StudentScreen</h1>
-        <h1>StudentScreen</h1>
-        <button>Hello click me</button>
-      </div>
-    )
+const StudentScreen = () =>{
+    
+  const arr_person = [
+    {
+      id:101,
+      firstname:"Sok",
+      lastname:"So",
+      email:"sok@gmail.com",
+    },
+    {
+      id:102,
+      firstname:"Do",
+      lastname:"Na",
+      email:"do@gmail.com",
+    },
+    {
+      id:103,
+      firstname:"Su",
+      lastname:"Su",
+      email:"su@gmail.com",
+    },
+    {
+      id:102,
+      firstname:"Do",
+      lastname:"Na",
+      email:"do@gmail.com",
+    },
+    {
+      id:103,
+      firstname:"Su",
+      lastname:"Su",
+      email:"su@gmail.com",
+    },
+    {
+      id:102,
+      firstname:"Do",
+      lastname:"Na",
+      email:"do@gmail.com",
+    },
+    {
+      id:103,
+      firstname:"Su",
+      lastname:"Su",
+      email:"su@gmail.com",
+    }
+  ]
+
+  return (
+    <div >
+        {arr_person.map((item,index)=>{
+          return(
+            <ListPerson
+              key={index}
+              firstname = {item.firstname}
+              lastname = {item.lastname}
+              email={item.email}
+            />
+          )
+        })} 
+    </div>
+  )
 }
 export default StudentScreen;

@@ -1,0 +1,37 @@
+.bg1{
+    color: rgb(0, 255, 64);
+}
+.bg2{
+    color: rgb(64, 64, 60);
+}
+
+.home_container{
+    padding: 20px;
+}
+.active{
+    background-color: green;
+}
+.disabled{
+    background-color: gray;
+}
+
+.coponent1{
+    height: 70px;
+    background-color: aquamarine;
+    margin: 10px;
+}
+
+.image{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    background-color: #e2e2e2;
+
+}
+
+.item_person{
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+    border-bottom: 1px solid gray;
+}
