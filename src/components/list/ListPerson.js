@@ -31,6 +31,8 @@ const ListPerson = ({email,lastname,firstname}) => {
             placeholder="Input email to subscribe"
             onChange={handleChangeEmail}
           />
+          <button>dd</button>
+
           <Botton
             title={"Subscribe"}
             bgColor={"green"}

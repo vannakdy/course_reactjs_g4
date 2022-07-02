@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+import ListPerson from "../../components/list/ListPerson";
+import styles from "./Student.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Botton from "../../components/button/Botton";
-import styles from "./Student.module.css"
+
 const StudentScreen = () => {
   const [listStudent, setListStudent] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +17,8 @@ const StudentScreen = () => {
       url: "https://nitc.cleverapps.io/api/student",
       method: "GET",
       data: {},
-    }).then((res) => {
+    })
+      .then((res) => {
         var data = res.data;
         setListStudent(data.list_student);
         setLoading(false);
@@ -25,33 +28,44 @@ const StudentScreen = () => {
       });
   };
 
-  const handleDelete = (item) => {
-    setLoading(true)
-    axios({
-      url : "https://nitc.cleverapps.io/api/student/"+item.student_id,
-      method : "DELETE",
-      data : {
-        // student_id : item.student_id
-      }
-    }).then(res=>{
-      console.log(res)
-      setLoading(false)
-      getList();
-    }).catch(err=>{
-      console.log(err)
-      setLoading(false)
-    })
-  }
+  const getGender = (gender) => {
+    return gender == 1 ? "Male" : "Female";
+    // var text = "";
+    // if(gender == 1){
+    //   text = "Male"
+    // }else{
+    //   text = "Female"
+    // }
+    // return text
+  };
 
   return (
     <div>
-     
+      {/* <label style={{textAlign:'center',display:'block'}}>{loading ? "Loading..." : ""}</label> */}
       {loading && (
         <label style={{ textAlign: "center", display: "block" }}>
           Loading ...
         </label>
       )}
       <h1>List student {listStudent.length}</h1>
+      <div>
+        {listStudent.map((item, index) => {
+          var gender = item.gender == 1 ? "Male" : "Female"
+          return (
+            <div key={index} className={styles.list_item}>
+              <div>
+                {item.fname}-{item.lastname}
+              </div>
+              {/* <div>{item.gender == 1 ? "Male" : "Female"}</div> */}
+              {/* <div>{getGender(item.gender)}</div> */}
+              <div>{gender}</div>
+              <div>{item.tel}</div>
+              <div>{item.email}</div>
+              <div>{item.description}</div>
+            </div>
+          );
+        })}
+
         <table>
           <thead>
             <tr>
@@ -76,15 +90,7 @@ const StudentScreen = () => {
                   <td>{item.email}</td>
                   <td>{item.description}</td>
                   <td>
-                    <div className={styles.action}>
-                      <Botton
-                        title={"Delete"}
-                        onClick={()=>handleDelete(item)}                    
-                      />
-                      <Botton
-                        title={"Edit"}                    
-                      />
-                    </div>
+
                   </td>
                 </tr>
               );
@@ -92,6 +98,7 @@ const StudentScreen = () => {
           </tbody>
         </table>
       </div>
+    </div>
   );
 };
 export default StudentScreen;
