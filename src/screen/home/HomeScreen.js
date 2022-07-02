@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import styles from "./HomeScreen.module.css";
+
 import ListPerson from "../../components/list/ListPerson";
 
 const HomeScreen = () =>{

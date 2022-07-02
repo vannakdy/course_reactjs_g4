@@ -6,6 +6,7 @@ const StudentScreen = () => {
   const [listStudent, setListStudent] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
     getList();
   },[]);
