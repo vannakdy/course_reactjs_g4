@@ -11,3 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.txtMain{
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.txtGreen{
+  color: green;
+}
+.txtGray{
+  color: gray;
+}
+.txtPink{
+
+}
+.txtDelete{
+
+}
+
+/* from input */
+input{
+  flex: 1;
+  padding: 10px;
+}
+select {
+  flex: 1;
+  padding: 10px;
+}
+option {
+  flex: 1;
+  padding: 10px;
+}
+button{
+  padding: 10px;
+}
+
+.from_input{
+  display: flex;
+  gap: 1px;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
