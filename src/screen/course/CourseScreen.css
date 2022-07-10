@@ -13,10 +13,10 @@ tr {
     border-bottom: 1px solid gray;
 }
 
-th , td {
+th , td  {
     text-align:  left;
     border: 1px solid #e2e2e2;
-    padding: 5px;
+    padding: 10px;
     border-collapse: collapse;
     font-size: 14px;
 }

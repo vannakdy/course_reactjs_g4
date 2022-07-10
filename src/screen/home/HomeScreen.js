@@ -26,7 +26,6 @@ const HomeScreen = () =>{
         email:"su@gmail.com",
       }
     ]
-
     return (
       <div className={styles.home_container}>
           {arr_person.map((item,index)=>{

@@ -1,0 +1,9 @@
+.header_teacher{
+    display: flex;
+    justify-content: space-between;
+}
+.row{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}

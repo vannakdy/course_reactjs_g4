@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./CourseScreen.css";
-import axios from "axios";
 import Botton from "../../components/button/Botton";
+import { fetchData } from "../../helper";
 const CourseScreen = () => {
   const [list, setList] = useState([]);
 
@@ -18,23 +18,10 @@ const CourseScreen = () => {
 
   const getList = () => {
     setLoading(true);
-    axios({
-      url: "https://nitc.cleverapps.io/api/courses",
-      method: "GET",
+    fetchData("api/courses",{},"GET").then(res=>{
+      setList(res.data);
+      setLoading(false)
     })
-      .then((res) => {
-        var response = res.data;
-        setList(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .then(() => {
-        setLoading(false);
-        // setTimeout(() => {
-        //     setLoading(false)
-        // }, 3000);
-      });
   };
 
   const onChangeName = (event) => {
@@ -51,7 +38,6 @@ const CourseScreen = () => {
   };
 
   const hadleAddCourse = () => {
-    // name , des, price ,status
     setLoading(true)
     var datas = {
         "name": name,
@@ -59,35 +45,19 @@ const CourseScreen = () => {
         "description": des,
         "status": Number(status)
     }
-    axios({
-        url : "https://nitc.cleverapps.io/api/courses",
-        method : "POST",
-        data : datas
-    }).then(res=>{
-        var response = res.data;
-        console.log(response)
-        getList();
-        clearFormData();
-    }).catch(err=>{
-        console.log(err)
-    }).then(()=>{
-        setLoading(false);
+    setLoading(true);
+    fetchData("api/courses",datas,"POST").then(res=>{
+      getList();
+      clearFormData();
+      setLoading(false);
     })
   }
 
   const handleDelete = (id) => {
     setLoading(true);
-    axios({
-        url : "https://nitc.cleverapps.io/api/courses/"+id,
-        method : "DELETE",
-    }).then(res=>{
-        var response = res.data;
-        console.log(response)
-        getList();
-    }).catch(err=>{
-        console.log(err)
-    }).then(()=>{
-        setLoading(false)
+    fetchData("api/courses/"+id,{},"DELETE").then(res=>{
+      getList();
+      setLoading(false);
     })
   }
 
@@ -101,19 +71,10 @@ const CourseScreen = () => {
         "description": des,
         "status": Number(status)
     }
-    axios({
-        url : "https://nitc.cleverapps.io/api/courses",
-        method : "PUT",
-        data : datas
-    }).then(res=>{
-        var response = res.data;
-        console.log(response)
-        getList();
-        clearFormData();
-    }).catch(err=>{
-        console.log(err)
-    }).then(()=>{
-        setLoading(false);
+    fetchData("api/courses",datas,"PUT").then(res=>{
+      getList();
+      clearFormData();
+      setLoading(false)
     })
   }
 
