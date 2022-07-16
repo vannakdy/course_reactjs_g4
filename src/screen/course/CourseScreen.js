@@ -14,11 +14,12 @@ const CourseScreen = () => {
 
   useEffect(() => {
     getList();
-  }, []);
+  },[]);
 
   const getList = () => {
     setLoading(true);
     fetchData("api/courses",{},"GET").then(res=>{
+      console.log(res)
       setList(res.data);
       setLoading(false)
     })

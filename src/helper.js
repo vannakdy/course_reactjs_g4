@@ -18,6 +18,10 @@ export const fetchData = (url="",data={},method="GET") => {
     }).then(res=>{
         return res.data;
     }).catch(err=>{
-        return err
+        var objEorror = {
+            error : true,
+            message : err
+        }
+        return objEorror
     })
 }

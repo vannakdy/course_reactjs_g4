@@ -14,21 +14,17 @@ const App = () => {
   return(
     <div>
       <BrowserRouter>
-
         <Header />
         <div style={{padding:20}}>
           <Routes>
             <Route path="/" element={<HomeScreen/>} />
-            
             <Route path="/login" element={<LoginScreen/>} />
-            
             <Route path="/student" element={<StudentScreen/>} />
             <Route path="/about" element = {<AboutScreen/>} />
             <Route path="/course" element  = {<CourseScreen/>} />
             <Route path="/teacher" element = {<TeacherScreen />} />
             <Route path="/teacher/create" element = {<TeacherFormScreen />} />
             <Route path="/teacher/create/:id" element = {<TeacherFormScreen />} />
-            
             <Route path="*" element={<RoutNotFoundScreen/>} />
           </Routes>
         </div>

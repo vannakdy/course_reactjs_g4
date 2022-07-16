@@ -6,6 +6,7 @@ const LoginScreen  = () => {
     const [loading,setLoading]= useState(false)
     const [username,setUsernaem] = useState("")
     const [password,setPassword] = useState("")
+    const [message , setMessage] = useState("");
 
     const handleLogin = () => {
         var data =  {
@@ -13,12 +14,17 @@ const LoginScreen  = () => {
             "password" : password
         }
         fetchData("api/auth/login",data,"POST").then(res=>{
-            localStorage.setItem("is_login",1)
-            localStorage.setItem("accessToken",res.accessToken)
-            localStorage.setItem("refreshToken",res.refreshToken)
-            localStorage.setItem("username",res.username);
-            localStorage.setItem("permiision",res.permiision)
-            window.location = ("/")
+            if(res.message){
+                setMessage(res.message)
+            }else{
+                localStorage.setItem("is_login",1)
+                localStorage.setItem("accessToken",res.accessToken)
+                localStorage.setItem("refreshToken",res.refreshToken)
+                localStorage.setItem("username",res.username);
+                localStorage.setItem("permiision",res.permiision)
+                window.location = ("/")
+            }
+            
         })
     }
 
@@ -29,6 +35,9 @@ const LoginScreen  = () => {
             <div className="from_input">
                 <input value={username} onChange={(event)=>setUsernaem(event.target.value)} placeholder="Username" /> <br />
                 <input value={password} type="password" onChange={(event)=>setPassword(event.target.value)} placeholder="Password" /> <br />
+                <div style={{height : 40}}>
+                    {message !== "" && <div className="txtDelete">{message}</div>}
+                </div>
                 <Botton 
                     title={"Login"}
                     onClick={handleLogin}

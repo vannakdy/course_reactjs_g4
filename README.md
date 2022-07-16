@@ -1,19 +1,19 @@
-- run project from git
+* run project from git
     1. clone
     2. goto root 
         > npm install
         > npm start
 
-- install node and npm 
+* install node and npm 
     > node -v => node >= 14.0.0
     > npm -v => npm >= 6.0.0
-- install project reactjs
+* install project reactjs
     > npx create-react-app project_name
-- run project
+* run project
     goto root
     > npm start
     http://localhost:3000
-- Modify App.js
+* Modify App.js
 
 
 * configure route
@@ -47,7 +47,7 @@
 - Basic variable display data
 - Style internal and external
 - Render Data
-- Configure route
+* Configure route
     > npm install react-router-dom@6
     - create pages 
         - crate folder screen
@@ -84,3 +84,9 @@
                 type : loclahost:3000/
                 type : loclahost:3000/about
                 type : loclahost:3000/student
+* install axios library
+    - what is axios
+    - install
+    - usage
+
+
